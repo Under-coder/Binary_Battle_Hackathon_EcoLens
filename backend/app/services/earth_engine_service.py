@@ -1,9 +1,19 @@
 import ee
 import datetime
+import os
+import json
 
-# Authenticate and initialize Earth Engine
-# ee.Authenticate()  # Run once in your environment - commented out for server
-ee.Initialize(project="internship-task-470310")
+
+creds_json = os.environ.get("EE_SERVICE_ACCOUNT")
+if creds_json:
+    service_account_info = json.loads(creds_json)
+    credentials = ee.ServiceAccountCredentials(
+        service_account_email=service_account_info['client_email'],
+        key_data=creds_json
+    )
+    ee.Initialize(credentials)
+else:
+    ee.Initialize()  # fallback for local testing
 
 # Simplified India boundary polygon
 india_boundary = ee.Geometry.Polygon([
