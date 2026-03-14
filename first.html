@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New EcoLens Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style12.css">
+</head>
+<body>
+    <!-- 🔥 HEADER NAVBAR ADDED -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i> EcoLens AI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#map-section">🗺️ Map</a></li>
+                <li><a href="#dashboard">📊 Dashboard</a></li>
+                <li><a href="#chart">📈 Analysis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>EcoLens – AI Ecosystem Recovery Advisor</h1>
+    </header>
+    
+    <div class="container">
+        <div class="input-section">
+            <input type="text" id="cityInput" placeholder="Enter city name (e.g., Bhopal)">
+            <button id="analyzeBtn">Analyze</button>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <h2>Location Map</h2>
+            <div id="map"></div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="card">
+                <h3>Green Cover</h3>
+                <p id="Cover">--</p>
+            </div>
+            <div class="card">
+                <h3>Green Loss</h3>
+                <p id="Loss">--</p>
+            </div>
+            <div class="card">
+                <h3>Cause Prediction</h3>
+                <p id="cause">--</p>
+            </div>
+            <div class="card">
+                <h3>Recovery Time</h3>
+                <p id="time">--</p>
+            </div>
+        </div>
+
+        <!-- Bar Graph Section -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-bar"></i> 📊 Vegetation Analysis by Years</h3>
+                <div class="chart-stats">
+                    <span>Current: <strong id="chartCurrent">--</strong></span>
+                    <span>Total Loss: <strong id="chartLoss">--</strong></span>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="vegetationChart"></canvas>
+            </div>
+            <div class="bar-legend">
+                <div class="legend-item current">
+                    <span class="color-box"></span>
+                    📈 Current Green Cover
+                </div>
+                <div class="legend-item cover">
+                    <span class="color-box"></span>
+                    🟢 Cover Green Area
+                </div>
+                <div class="legend-item loss">
+                    <span class="color-box"></span>
+                    🔴 Loss Green Area
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script12.js"></script>
+</body>
+</html>
