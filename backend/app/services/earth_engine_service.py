@@ -4,16 +4,20 @@ import os
 import json
 
 
-creds_json = os.environ.get("EE_SERVICE_ACCOUNT")
-if creds_json:
-    service_account_info = json.loads(creds_json)
-    credentials = ee.ServiceAccountCredentials(
-        service_account_email=service_account_info['client_email'],
-        key_data=creds_json
-    )
-    ee.Initialize(credentials)
-else:
-    ee.Initialize()  # fallback for local testing
+# creds_json = os.environ.get("EE_SERVICE_ACCOUNT")
+# if creds_json:
+#     service_account_info = json.loads(creds_json)
+#     credentials = ee.ServiceAccountCredentials(
+#         service_account_email=service_account_info['client_email'],
+#         key_data=creds_json
+#     )
+#     ee.Initialize(credentials)
+# else:
+#     ee.Initialize()  # fallback for local testing
+
+# Initialize Earth Engine for local use
+# Authenticate once by running ee.Authenticate() if not done already
+ee.Initialize(project="internship-task-470310")
 
 # Simplified India boundary polygon
 india_boundary = ee.Geometry.Polygon([
